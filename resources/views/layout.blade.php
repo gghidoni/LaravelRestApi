@@ -10,7 +10,14 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><a href="/categories">TuscanyLeatherApi</a></div>
+            <div class="logo"><a href="/{{$language}}/categories">TuscanyLeatherApi</a></div>
+
+            <div class="lang">
+                <a href="/it/{{$uri}}">IT</a>
+                <a href="/en/{{$uri}}">EN</a>
+            </div>
+            
+            
         </nav>
     </header>
     <section class="main">

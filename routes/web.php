@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('{lang}/categories', [CategoryController::class, 'index']);
 
-Route::get('categories/{category}', [CategoryController::class, 'show']);
+Route::get('{lang}/categories/{category}', [CategoryController::class, 'show']);
 
-Route::get('categories/{category}/products/{product}', [ProductController::class, 'index']);
+Route::get('{lang}/categories/{category}/products/{product}', [ProductController::class, 'index']);
 
-Route::get('categories/{category}/products/{product}/{sku}', [ProductController::class, 'show']);
+Route::get('{lang}/categories/{category}/products/{product}/{sku}', [ProductController::class, 'show']);
