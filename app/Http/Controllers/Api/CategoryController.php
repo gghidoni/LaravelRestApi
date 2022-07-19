@@ -21,7 +21,7 @@ class CategoryController extends Controller
     
         // Se la richiesta delle categorie non è gia stata memorizzata nella cache e se non è passato 
         // il tempo indicato allora effettuo una nuova richiesta api per le categorie
-        // tralascio la selezione della lingua inserendola maualmente
+        
         $categories = cache()->remember('categories-list-' . $lang, 60*60*24, function() use ($apiUri, $lang) {
             return Http::withToken(ApiController::getToken())->get($apiUri, [
                 'language' => $lang
@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
             // Preparo la uri per la riuchesta api
             $apiUri = ApiController::getApiUri() . '/categories';
-            
+
             $categories = cache()->remember('categories-list-' . $lang, 60*60*24, function() use ($apiUri, $lang) {
                 return Http::withToken(ApiController::getToken())->get($apiUri, [
                     'language' => $lang

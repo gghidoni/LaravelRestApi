@@ -23,7 +23,7 @@ class ProductController extends Controller
         
         // Se non gia memorizzata in cache e non trascorso il tempo stabilito effettuo una chiamata alla api
         // andando a prelevare il modello di prodotto indicato nella uri di richiesta, 
-        // tralascio la selezione di lingua e moneta inserendoli manualmente
+        
         $productModel = cache()->remember($productCardCache, 60*60*4, function() use ($apiUri, $productId, $lang) {
             return Http::withToken(ApiController::getToken())->get($apiUri, [
                 'code' => $productId,
@@ -96,7 +96,7 @@ class ProductController extends Controller
 
             // prelevo dalla cache
             $productItems = Cache::get($productId . '-items-' . $lang);
-            
+
         } else {
 
                 // vado a iterare gli items trovati nel modello prodotto
